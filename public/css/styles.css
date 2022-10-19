@@ -1,0 +1,36 @@
+/* .row {
+    border: 1px solid pink;
+} */
+/* div {
+    border: 0.5px solid gray;
+} */
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body, .list-group-item, .copyright, .form-control-suscribe {
+    background: #2c2c2c !important;
+}
+.title, .p{
+    color: lightgray;
+}
+
+.grid {
+    border: 1px solid dimgray ;
+}
+.line{
+    border: 1.5px dashed lightslategray;
+    margin: 20px 30px;
+}
+
+.card-img {
+background-repeat: no-repeat;
+background-size: cover;
+background-position-x: center;
+}
+
+a, ul, .list-group-item{
+    text-decoration: none  !important;
+}

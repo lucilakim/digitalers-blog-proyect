@@ -1,0 +1,36 @@
+<div class="col-sm-11">
+<div class="mb-3">
+    <label for="title" class="form-label text-light"> Title </label>
+    <input required type="text" name="title" class="form-control" id="title" value="<%= article.title %> ">
+</div>
+<div class="mb-3">
+    <label for="title" class="form-label text-light"> Author </label>
+    <input required type="text" name="author" class="form-control" id="author" value="<%= article.title %> ">
+</div>
+
+<div class="mb-3">
+    <label for="description" class="form-label text-light"> Description </label>
+    <textarea class="form-control" name="description" id="description" rows="3"><%= article.description %> </textarea>
+</div>
+
+
+<div class="mb-3">
+    <label for="markdown" class="form-label text-light"> Markdown </label>
+    <input required class="form-control" name="markdown" id="markdown" rows="3"><%= article.markdown %> </input>
+</div>
+
+<div class="form-group">
+    <label for="image" class="text-white">Upload image</label>
+    <input type="file" name="image" id="image" class="form-control-file text-light">
+</div>
+
+
+
+<br>
+<a href="/" class="btn btn-warning">
+    Cancel
+</a>
+<button type="submit" class="btn btn-primary">
+    Post
+</button>
+</div>

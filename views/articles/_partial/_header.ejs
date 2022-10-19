@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/css/styles.css">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/string-strip-html/dist/string-strip-html.umd.js"></script>    
+
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>tinymce.init({ selector: 'textarea' });</script>
+
+    <title>Blog</title>
+</head>
+
+<body>
+    <div class="container-fluid grid">
+        
+        <!-- Navbar-->
+        <div class="row">
+            <nav class="navbar navbar-expand-lg bg-light  pb-3 navbar-dark bg-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand ps-4" href="/">Blog</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/home">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/post">Post</a>
+                            </li>
+
+                            <!-- blog nav -->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    Blog
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="/blog">Blog</a></li>
+                                    <li><a class="dropdown-item" href="/articles?page=1">Posts</a></li>
+                                    <li><a class="dropdown-item" href="/works">Works</a></li>    
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="/biography">Biography</a></li>
+                                </ul>
+                            </li>
+                            </ul>       
+
+                    </div>
+                    <div class="d-flex justify-content-end mb-3align-items-center">
+                        <a href="/articles/new" class="btn btn-outline-success d-flex align-items-center me-5">
+                            <i class="material-icons mr-2 me-2">add_circle</i>
+                            Post</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        
+
+        <!-- <div class="text-center">
+            <img src="https://res.cloudinary.com/dx2uakpv5/image/upload/v1665536026/twitter-logo_zvsdy5.png" alt="" class="img-fluid">
+        </div> -->

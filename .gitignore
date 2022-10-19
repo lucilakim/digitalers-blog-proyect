@@ -1,0 +1,16 @@
+.DS_Store
+.Trashes
+*.swp
+logs
+*.log
+npm-debug.log*
+pids
+*.pid
+*.seed
+coverage
+.grunt
+.lock-wscript
+build/Release
+
+node_modules
+.env

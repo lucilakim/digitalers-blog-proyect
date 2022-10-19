@@ -1,0 +1,17 @@
+                                        <!-- Display more button -->
+                                        <div class="more position-relative" style="cursor: pointer;">
+                                            <i class="material-icons p-2">more_vert</i>
+                                            <!-- options list -->
+                                            <div class="d-none options card rounded-pill shadow-sm p-1 position-absolute">
+                                                <a href="articles/edit/<%= article.id %>" class="rounded-circle p-2 mb-2" style="background:blue;">
+                                                    <i class="material-icons" style="color:white">create</i>
+                                                </a>
+
+                                                <form action="articles/<%= article.id %>?_method=DELETE" method="POST">
+                                                <button class="rounded-circle p-2 bg-danger">
+                                                    <i class="material-icons" style="color:white">delete</i>
+                                                </button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>

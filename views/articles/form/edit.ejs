@@ -1,0 +1,25 @@
+<%- include('../_partial/_header.ejs'); -%>
+
+<div class="container">
+    <div class="container pt-5 mb-0">
+        <div class="row ms-5">
+                <div class="col-1 mb-0">
+                        <button type="button" onclick="history.back()"
+                                class="btn btn-secondary rounded-pill shadow p-2 d-flex align-items-center justify-content-center"
+                                style="text-decoration:none;">
+                                <i class="material-icons mr-2" style="color:black">arrow_left
+                                </i> <span class="" style="color:black">Back</span>
+                            </button>
+                </div>
+        </div>
+
+    <div class="container p-5 pt-0">
+        <h1 class="title text-center p-3">Edit Post</h1>
+        <form action="/articles/<%= article.id %>?_method=PUT" method="POST" class="d-flex justify-content-center" enctype="multipart/form-data">
+            <%- include('_form.ejs'); %>
+        </form>
+    </div>
+
+    
+
+<%- include('../_partial/_footer.ejs'); -%>
