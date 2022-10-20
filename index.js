@@ -2,8 +2,8 @@ const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
 require('dotenv').config()
-const Article = require('../models/article')
-const articleRouter = require('../routes/articles')
+const Article = require('./models/article')
+const articleRouter = require('./routes/articles')
 //const routes = require('../routes/routes')
 const methodOverride = require('method-override')
 const path = require('path')
@@ -14,7 +14,7 @@ const session = require('express-session')
 const flash = require('connect-flash')
 
 
-let setUpPassport = require('../setuppassport')
+let setUpPassport = require('./setuppassport')
 
 
 //----- Settings
@@ -45,7 +45,7 @@ app.use(flash());
 app.use(bodyParser.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(methodOverride('_method'))
-const ensureAuthenticated = require('../auth/auth').ensureAuthenticated;
+const ensureAuthenticated = require('./auth/auth').ensureAuthenticated;
 
 
 // Ruta principal Blog 
@@ -68,8 +68,8 @@ setUpPassport();
 
 //----- Routes
 app.use('/articles', articleRouter);
-app.use('/', require('../routes/web'));
-app.use('/api', require('../routes/api'));
+app.use('/', require('./routes/web'));
+app.use('/api', require('./routes/api'));
 
 
 app.listen(port,
