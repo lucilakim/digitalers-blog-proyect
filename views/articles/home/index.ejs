@@ -1,5 +1,5 @@
 <%- include('../_partial/_header.ejs'); -%>
-    <%- include('../_partial/_leftMenu.ejs'); -%>
+<%- include('../_partial/_leftMenu.ejs'); -%>
 
 
         <article>
@@ -10,64 +10,78 @@
                         <i class="material-icons mr-2 me-2">add_circle</i>
                         New Post</a>
                 </div>
-                
+
                 <div class="row d-flex justify-content-center">
                     <% if(articles.length < 1) { %>
-                    <p class="p text-center">No post yet, create a new one</p>
-                    <%}%> 
+                        <p class="p text-center">No post yet, create a new one</p>
+                        <%}%>
 
-                    <% articles.forEach(article=>{ %>
-                        <div class="col-lg-5 card m-3 p-3 ">
-                            <div class="row p-2">
-                                <div class="col-5 overflow-hidden">
-                                    <img src="/public/uploads/images/<%= article.img %>" class="card-img" alt="...">
-                                </div>
-                                <div class="col-7">
-                                    <div class="d-flex align-items-start">
-                                        <h5 class="w-100"><b> <%= article.title %> </b></h5>
+                            <% articles.forEach(article=>{ %>
+                                <div class="col-lg-5 card m-3 p-3 ">
+                                    <div class="row p-2">
+                                        <div class="col-5 overflow-hidden">
+                                            <img src="/public/uploads/images/<%= article.img %>" class="card-img"
+                                                alt="...">
+                                        </div>
+                                        <div class="col-7">
+                                            <div class="d-flex align-items-start">
+                                                <h5 class="w-100"><b>
+                                                        <%= article.title %>
+                                                    </b></h5>
 
-                                        <!-- Display more button -->
-                                        <div class="more position-relative" style="cursor: pointer;">
-                                            <i class="material-icons p-2">more_vert</i>
-                                            <!-- options list -->
-                                            <div class="d-none options card rounded-pill shadow-sm p-1 position-absolute">
-                                                <a href="articles/edit/<%= article.id %>" class="rounded-circle p-2 mb-2" style="background:blue;">
-                                                    <i class="material-icons" style="color:white">create</i>
+                                                <!-- Display more button -->
+                                                <div class="more position-relative" style="cursor: pointer;">
+                                                    <i class="material-icons p-2">more_vert</i>
+                                                    <!-- options list -->
+                                                    <div
+                                                        class="d-none options card rounded-pill shadow-sm p-1 position-absolute">
+                                                        <a href="articles/edit/<%= article.id %>"
+                                                            class="rounded-circle p-2 mb-2" style="background:blue;">
+                                                            <i class="material-icons" style="color:white">create</i>
+                                                        </a>
+
+                                                        <button data-bs-id="<%= article.id %>"
+                                                            class="rounded-circle p-2 bg-danger"
+                                                            data-bs-title="<%= article.title %>" data-bs-toggle="modal"
+                                                            data-bs-target="#deleteModal">
+                                                            <i class="material-icons" style="color:white">delete
+                                                            </i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <span class="align-self-stretch ">
+                                                <%= article.markdown %>
+                                            </span>
+                                            <div class="d-flex align-items-end">
+                                                <div class="mr- me-2 mt-1">
+                                                    <img src="/public/uploads/images/<%= article.img %>"
+                                                        class="rounded-circle" style="width: 40px; height: 40px;">
+                                                </div>
+                                                <div class=" flex-grow-1">
+                                                    <h5 class="" style="font-size: 14px; line-height: 0.5rem;">
+                                                        <span><b>
+                                                                <%= article.author %>
+                                                            </b></span>
+                                                    </h5>
+                                                    <p style="font-size: 8px; line-height: 0.2rem;">
+                                                        <%= article.createdAt.toLocaleDateString() %>
+                                                    </p>
+                                                </div>
+                                                <a href="articles/<%= article.slug %>" class=" align-self-end">
+                                                    <i class='material-icons ml-3'>send</i>
                                                 </a>
-
-                                                <button data-bs-id="<%= article.id %>" class="rounded-circle p-2 bg-danger" data-bs-title="<%= article.title %>" data-bs-toggle="modal" data-bs-target="#deleteModal">
-                                                    <i class="material-icons" style="color:white">delete
-                                                    </i>
-                                                </button>
                                             </div>
                                         </div>
                                     </div>
-
-                                    <span class="align-self-stretch "><%= article.markdown %>
-                                    </span>
-                                    <div class="d-flex align-items-end">
-                                        <div class="mr- me-2 mt-1">
-                                            <img src="/public/uploads/images/<%= article.img %>" class="rounded-circle" style="width: 40px; height: 40px;">
-                                        </div>
-                                        <div class=" flex-grow-1">
-                                            <h5 class="" style="font-size: 14px; line-height: 0.5rem;">
-                                                <span><b><%= article.author %></b></span></h5>
-                                            <p style="font-size: 8px; line-height: 0.2rem;">
-                                                <%= article.createdAt.toLocaleDateString() %></p>
-                                        </div>
-                                        <a href="articles/<%= article.slug %>" class=" align-self-end">
-                                            <i class='material-icons ml-3'>send</i>
-                                        </a>
-                                    </div>
                                 </div>
-                            </div>
-                        </div>
                         <% }) %>
-                        </div>
-                        </div>
+                </div>
+            </div>
         </article>
-        
-        
-        <%- include('../_partial/_rightMenu.ejs'); -%>
-        <%- include('../form/_modalDelete'); -%>
-        <%- include('../_partial/_footer.ejs'); -%>
+
+
+<%- include('../_partial/_rightMenu.ejs'); -%>
+<%- include('../form/_modalDelete'); -%>
+<%- include('../_partial/_footer.ejs'); -%>

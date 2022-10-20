@@ -1,7 +1,8 @@
         <!-- Pagination nav -->
     <div class="container">
-        <div class="row p-3">
+        <div class="row p-3 pt-0 mt-5">
 
+            <!-- Back button - history-back x id-->
             <div class="col-sm-4 justify-content-end">
                 <button type="button" id="backButton"
                 class="btn btn-secondary rounded-pill shadow p-2 d-flex align-items-center justify-content-center">
@@ -10,10 +11,11 @@
                 </button>
             </div>
 
-            <div class="col-sm-4">
+            <!-- Pagination -->
+            <div class="col-sm-4 justify-content-center">
             <% if(pages > 0) { %> <!--show pagination if there is pages -->
                 <nav class="">
-                    <ul class="pagination justify-content-center">
+                    <ul class="pagination">
                         <!-- FIRST PAGE -->
                         <% if(current == 1) { %>
                             <li class="page-item disabled">
@@ -72,14 +74,17 @@
                 </nav>
             </div>
 
-            <div class="col-sm-4 justify-content-start">
+            <!-- Next button - history-forward x id -->
+
+            <div class="col-sm-4 justify-content-end">
                 <button type="button" id="nextButton"
-                        class="btn btn-secondary rounded-pill shadow p-2 d-flex align-items-center justify-content-center">
+                        class="btn btn-secondary rounded-pill shadow p-2 d-flex align-items-center justify-content-end">
                         <span class="" style="color:black">Next</span>
                         <i class="material-icons mr-2" style="color:black">arrow_right
                         </i> 
                 </button>
             </div>
+
 
         </div>
     </div>

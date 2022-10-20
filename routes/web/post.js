@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.use(ensureAuthenticated)
 
-router.get('/', (req, res)=>{
+router.get('/', (req, res) => {
     res.render('articles/post/posts')
 })
 

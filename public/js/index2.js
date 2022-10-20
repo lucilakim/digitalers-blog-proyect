@@ -11,7 +11,7 @@ const deleteModal = document.getElementById('deleteModal')
 deleteModal.addEventListener('show.bs.modal', event => {
 
     const button = event.relatedTarget
-    
+
     //consumiendo data
     const id = button.getAttribute('data-bs-id') // obtenemos el atributo 
     const deleted = "?_method=DELETE"
@@ -26,16 +26,16 @@ deleteModal.addEventListener('show.bs.modal', event => {
     let action = deleteForm.getAttribute("data-bs-action")
 
     //para limpiar el action, y que no se concantene entre ellos
-    deleteForm.setAttribute("action",action+id+deleted)
+    deleteForm.setAttribute("action", action + id + deleted)
 })
 
 // Back Button
 const backButton = document.querySelector('#backButton')
-backButton.addEventListener('click', (e)=>{
+backButton.addEventListener('click', (e) => {
     history.back();
 })
 // Next Button 
 const nextButton = document.querySelector('#nextButton')
-nextButton.addEventListener('click', (e)=>{
+nextButton.addEventListener('click', (e) => {
     history.forward();
 })

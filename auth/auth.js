@@ -1,6 +1,6 @@
 // Middleware to ckeck if logged in 
-const ensureAuth = function ensureAuthenticated(req, res, next){
-    if(req.isAuthenticated()){
+const ensureAuth = function ensureAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
         next();
     } else {
         req.flash("info", "You must be logged in to see this page");
@@ -8,4 +8,4 @@ const ensureAuth = function ensureAuthenticated(req, res, next){
     }
 }
 
-module.exports = {ensureAuthenticated: ensureAuth}
+module.exports = { ensureAuthenticated: ensureAuth }

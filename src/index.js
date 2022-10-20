@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
 require('dotenv').config()
-const Article = require('../models/article') 
+const Article = require('../models/article')
 const articleRouter = require('../routes/articles')
 //const routes = require('../routes/routes')
 const methodOverride = require('method-override')
@@ -27,12 +27,12 @@ app.set("views/articles", path.join(__dirname, "views/articles"));
 app.use('/public/', express.static('./public/'))
 
 
-app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(session({
-    secret:"asdfasdf!@afd.sf-sdfsdf",
-    resave:false,
-    saveUninitialized:false
+    secret: "asdfasdf!@afd.sf-sdfsdf",
+    resave: false,
+    saveUninitialized: false
 }));
 
 
@@ -43,26 +43,28 @@ app.use(flash());
 
 //----- Middlewares
 app.use(bodyParser.json())
-app.use(express.urlencoded({extended: false}))
+app.use(express.urlencoded({ extended: false }))
 app.use(methodOverride('_method'))
 const ensureAuthenticated = require('../auth/auth').ensureAuthenticated;
 
 
 // Ruta principal Blog 
-app.get('/blog', async(req,res)=>{
+app.get('/blog', async (req, res) => {
     const articles = await Article.find().sort({
         createdAt: "desc"
     }).limit(10)
-    res.render('articles/home/index', {articles: articles})
+    res.render('articles/home/index', { articles: articles })
 })
 
 
 // MongoDB connection
-mongoose   
+// mongoose   
+//     .connect(process.env.MONGODB_URI)
+mongoose
     .connect(process.env.MONGODB_URI)
-    .then(()=> console.log('Conectado a MongoDB Atlas'))
-    .catch((err)=>console.error(err))
-setUpPassport(); 
+    .then(() => console.log('Conectado a MongoDB Atlas'))
+    .catch((err) => console.error(err))
+setUpPassport();
 
 //----- Routes
 app.use('/articles', articleRouter);
@@ -71,5 +73,5 @@ app.use('/api', require('../routes/api'));
 
 
 app.listen(port,
-    ()=> console.log(`Server started on port ${port}`)
-    )
+    () => console.log(`Server started on port ${port}`)
+)

@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const {marked} = require('marked')
+const { marked } = require('marked')
 const slugify = require('slugify')
 const createDOMPurify = require('dompurify');
 const { JSDOM } = require('jsdom');
@@ -10,13 +10,13 @@ const htmlPurify = dompurify(new JSDOM().window);
 
 const articleSchema = new mongoose.Schema(
     {
-        title: { 
+        title: {
             type: String,
             require: true,
         },
-        author:{
+        author: {
             type: String,
-            required:true,
+            required: true,
         },
         description: {
             type: String,
@@ -34,8 +34,8 @@ const articleSchema = new mongoose.Schema(
             required: true,
             unique: true // contruye indices unicos, que no haya otro igual, lo que va en la url
         },
-        img:{
-            type:String,
+        img: {
+            type: String,
             default: "placeholde.jpg"
         },
         sanitizedHtml: {
@@ -49,21 +49,21 @@ const articleSchema = new mongoose.Schema(
     {
         versionKey: false
     }
-)
+);
 
 // Middleware .pre()
 
-articleSchema.pre('validate', function (next){
+articleSchema.pre('validate', function (next) {
     //check if there is a title
-    if(this.title){
-        this.slug = slugify(this.title, {lower: true, strict: true}) 
+    if (this.title) {
+        this.slug = slugify(this.title, { lower: true, strict: true })
     }
     //check if there is a markdown
-    if(this.markdown){
+    if (this.markdown) {
         this.sanitizedHtml = dompurify.sanitize(marked(this.markdown))
     }
     //check if there is a description
-    if(this.description){
+    if (this.description) {
         this.sanitizedHtml = dompurify.sanitize(marked(this.markdown))
     }
 

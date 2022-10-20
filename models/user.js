@@ -21,7 +21,11 @@ const userSchema = mongoose.Schema({
         type: Date,
         default: Date.now
     }
-});
+},
+    {
+        versionKey: false
+    }
+);
 
 // Method to save
 //
